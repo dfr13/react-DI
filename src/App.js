@@ -1,14 +1,16 @@
 import React from 'react';
 import './style.css';
-import Etiqueta1 from './components/Etiqueta1';
+import Lista from './components/Lista';
 
 export default function App() {
+  let listaElementos = ["Elemento1", "Elemento2","Elemento3"];
+  listaElementos.push("Elemento4");
 
   return (
     <div>
       <h1>Primer Componente</h1>
-      <Etiqueta1 titulo="hola1 "nombre="dani"/>
-      <Etiqueta1 titulo="hola2 "nombre="celia"/>
+      <Lista titulo="hola1 "nombre="dani" elementos={listaElementos}/>
+      <Lista titulo="hola2 "nombre="celia" elementos={listaElementos}/>
       
     </div>
   );
