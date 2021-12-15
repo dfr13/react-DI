@@ -1,6 +1,6 @@
 import React from 'react';
 import ComponenteLista from './ComponenteLista';
-import '/.componente-lista.css';
+import ComponenteLista from'/.componente-lista.css';
 export default function Lista(props) {
   const listaElementos = [];
   if (props.elementos !== undefined) {
