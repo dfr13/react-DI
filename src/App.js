@@ -13,7 +13,6 @@ export default function App() {
     <div>
       <h1>Primer Componente</h1>
       <Lista titulo="hola1 " nombre="dani" elementos={listaElementos} />
-      <Lista titulo="hola2 " nombre="celia" elementos={listaElementos} />
     </div>
   );
 }

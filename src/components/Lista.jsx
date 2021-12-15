@@ -1,13 +1,12 @@
 import React from 'react';
 import ComponenteLista from './ComponenteLista';
-import ComponenteLista from'/.componente-lista.css';
 export default function Lista(props) {
   const listaElementos = [];
   if (props.elementos !== undefined) {
     for (let i = 0; i < props.elementos.length; i++) {
       listaElementos.push(
         <ComponenteLista 
-        done={props.elementos[i].donde}
+        done={props.elementos[i].done}
         texto={props.elementos[i].texto}/>
       );
     }
