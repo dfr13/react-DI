@@ -3,15 +3,17 @@ import './style.css';
 import Lista from './components/Lista';
 
 export default function App() {
-  let listaElementos = ["Elemento1", "Elemento2","Elemento3"];
-  listaElementos.push("Elemento4");
+  let listaElementos = [
+    { done: false, texto: 'Elemento 1' },
+    { done: true, texto: 'Elemento 2' },
+    { done: false, texto: 'Elemento 3' },
+  ];
 
   return (
     <div>
       <h1>Primer Componente</h1>
-      <Lista titulo="hola1 "nombre="dani" elementos={listaElementos}/>
-      <Lista titulo="hola2 "nombre="celia" elementos={listaElementos}/>
-      
+      <Lista titulo="hola1 " nombre="dani" elementos={listaElementos} />
+      <Lista titulo="hola2 " nombre="celia" elementos={listaElementos} />
     </div>
   );
 }
