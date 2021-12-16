@@ -1,11 +1,11 @@
 import React from 'react';
 import './componente-lista.css';
 export default function ComponenteLista(props) {
-  let claseLista="";
+  let claseLista=props.prioridad;
  if (props.done){
-   claseLista="el-checked";
+   claseLista +=" el-done";
  } else {
-   claseLista="el-unchecked";
+   claseLista +=" el-undone";
  }
 
   return (
@@ -15,3 +15,7 @@ export default function ComponenteLista(props) {
     </li>
   );
 }
+
+ComponenteLista.defaultProps = {
+  prioridad:'baja',
+};

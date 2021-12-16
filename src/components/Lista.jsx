@@ -7,7 +7,8 @@ export default function Lista(props) {
       listaElementos.push(
         <ComponenteLista 
         done={props.elementos[i].done}
-        texto={props.elementos[i].texto}/>
+        texto={props.elementos[i].texto}
+        prioridad={props.elementos[i].prioridad}/>
       );
     }
   }

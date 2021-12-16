@@ -4,9 +4,9 @@ import Lista from './components/Lista';
 
 export default function App() {
   let listaElementos = [
-    { done: false, texto: 'Elemento 1' },
-    { done: true, texto: 'Elemento 2' },
-    { done: false, texto: 'Elemento 3' },
+    { done: false, texto: 'Elemento 1', prioridad:'alta' },
+    { done: true, texto: 'Elemento 2'},
+    { done: false, texto: 'Elemento 3'  },
   ];
 
   return (
