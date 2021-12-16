@@ -4,15 +4,17 @@ import Lista from './components/Lista';
 
 export default function App() {
   let listaElementos = [
-    { done: false, texto: 'Elemento 1', prioridad:'alta' },
-    { done: true, texto: 'Elemento 2'},
-    { done: false, texto: 'Elemento 3'  },
+    { done: false, texto: 'Tareas de casa', prioridad:'alta' },
+    { done: true, texto: 'Lista de compra'},
+    { done: false, texto: 'Sacar la basura'}, 
+    { done: false, texto: 'Comprar pan' },
   ];
 
   return (
     <div>
-      <h1>Primer Componente</h1>
-      <Lista titulo="hola1 " nombre="dani" elementos={listaElementos} />
+      <h1>Lista de tareas</h1>
+      <Lista titulo="Tareas " nombre="dani" elementos={listaElementos} />
+      <Lista titulo="Tareas " nombre="Celia" elementos={listaElementos} />
     </div>
   );
 }
