@@ -7,6 +7,10 @@ class ListaClase extends  React.Component {
     this.elementos = props.elementos;
   }
   render (){
-
-  };
+    return (
+      <br />
+    );
+  }
+  
 } 
+export default ListaClase;
