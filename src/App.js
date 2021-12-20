@@ -4,9 +4,15 @@ import Lista from './components/Lista';
 
 export default function App() {
   let listaElementos = [
-    { done: false, texto: 'Tareas de casa', prioridad:'alta' },
-    { done: true, texto: 'Lista de compra'},
-    { done: false, texto: 'Sacar la basura'}, 
+    { done: false, texto: 'Tareas de casa', prioridad: 'alta' },
+    { done: true, texto: 'Lista de compra' },
+    { done: true, texto: 'Sacar la basura', prioridad: 'media' },
+    { done: false, texto: 'Comprar pan' },
+  ];
+  let listaElementos2 = [
+    { done: false, texto: 'Hacer ABPI', prioridad: 'alta' },
+    { done: true, texto: 'Comida gatos' },
+    { done: true, texto: 'Sacar la basura', prioridad: 'media' },
     { done: false, texto: 'Comprar pan' },
   ];
 
@@ -14,7 +20,7 @@ export default function App() {
     <div>
       <h1>Lista de tareas</h1>
       <Lista titulo="Tareas " nombre="dani" elementos={listaElementos} />
-      <Lista titulo="Tareas " nombre="Celia" elementos={listaElementos} />
+      <Lista titulo="Tareas " nombre="Celia" elementos={listaElementos2} />
     </div>
   );
 }
