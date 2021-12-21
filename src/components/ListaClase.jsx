@@ -4,11 +4,11 @@ class ListaClase extends React.Component {
   constructor(props) {
     super(props);
 
-    this.listaComponentes = [];
+    this.listaElementos = [];
 
     if (props.elementos !== undefined) {
       for (let i = 0; i < props.elementos.length; i++) {
-        this.listaComponentes.push(
+        this.listaElementos.push(
           <ComponenteListaClase
             done={props.elementos[i].done}
             texto={props.elementos[i].texto}
@@ -18,17 +18,19 @@ class ListaClase extends React.Component {
       }
     }
     this.state = {
-      lista: this.listaComponentes,
+      lista: this.listaElementos,
     };
     this.valorTextInput;
     this.valorSelect;
   }
   anadir() {
-    this.listaComponentes = this.listaComponentes.concat(
-      <ComponenteListaClase texto={this.valorTextInput.value} 
-      prioridad={this.valorSelect.value}/>
+    this.listaElementos = this.listaElementos.concat(
+      <ComponenteListaClase
+        texto={this.valorTextInput.value}
+        prioridad={this.valorSelect.value}
+      />
     );
-    this.setState({ lista: this.listaComponentes });
+    this.setState({ lista: this.listaElementos });
     this.valorTextInput.value = '';
   }
   render() {
@@ -36,7 +38,7 @@ class ListaClase extends React.Component {
       <div>
         {this.props.titulo} {this.props.nombre}
         <ul>
-          {this.listaComponentes}
+          {this.listaElementos}
           <li>
             <input
               ref={(vTI) => (this.valorTextInput = vTI)}
