@@ -28,5 +28,5 @@ ComponenteLista.defaultProps = {
   prioridad:'baja',
   done: false,
 };
-export default ComponenteLista;
+
 
