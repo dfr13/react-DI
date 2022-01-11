@@ -4,30 +4,24 @@ import Lista from './Lista';
 import ListaClase from './ListaClase';
 
 export function PaginaListas() {
-  const elementos1 = [
-    { done: false, texto: 'Hacer la compra', prioridad: 'alta' },
-    { done: true, texto: 'Sacar al perro', prioridad: 'media' },
+  let listaElementos = [
+    { done: true, texto: 'Tareas de casa', prioridad: 'alta' },
+    { done: false, texto: 'Lista de compra' },
+    { done: false, texto: 'Sacar la basura', prioridad: 'media' },
+    { done: true, texto: 'Comprar pan' },
   ];
-  const elementos2 = [
-    { done: false, texto: 'Tomates' },
-    { done: true, texto: 'Queso' },
-    { done: false, texto: 'Leche' },
+  let listaElementos2 = [
+    { texto: 'Hacer ABPI', prioridad: 'alta' },
+    { done: true, texto: 'Comida gatos' },
+    { done: true, texto: 'Sacar la basura', prioridad: 'media' },
+    { texto: 'Comprar pan' },
   ];
-  const elementos3 = [{ done: false, texto: 'Estudiar React.js' }];
 
   return (
     <div>
       <h1>Listas de tareas</h1>
-      <Lista
-        titulo="Tareas de la casa (funciones)"
-        icono="♥"
-        elementos={elementos1}
-      />
-      <ListaClase
-        titulo="ToDos del curso (clases)"
-        icono="🙌"
-        elementos={elementos3}
-      />
+      <ListaClase titulo="Tareas " nombre="dani" elementos={listaElementos} />
+      <Lista titulo="Tareas " nombre="Celia" elementos={listaElementos2} />
     </div>
   );
 }
