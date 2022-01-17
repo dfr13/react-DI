@@ -34,7 +34,9 @@ import { Home } from './components/Home';
 import { PaginaListas } from './components/PaginaListas';
 import { Perfil } from './components/Perfil';
 import Header from './components/Header';
+import BoostrapHeader from './components/BoostrapHeader';
 import { MenuItems } from './data/MenuItems';
+
 
 
 export default function App() {
@@ -42,6 +44,7 @@ export default function App() {
     
     <Router>
       <Header />
+      <BoostrapHeader />
       {MenuItems.map((item) => {
         return (
           <Route
