@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import ComponenteLista from './ComponenteLista';
+import uuid from 'react-uuid';
 
 export default function Lista(props) {
   const listaInicial = [];
@@ -21,6 +22,7 @@ export default function Lista(props) {
   const funcion = function anadir() {
     const newLista = listaElementos.concat(
       <ComponenteLista
+      key={uuid()}
         texto={valorTextInput.current.value}
         prioridad={valorSelect.current.value}
       />

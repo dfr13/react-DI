@@ -1,5 +1,6 @@
 import React from 'react';
 import ComponenteListaClase from './ComponenteListaClase';
+import uuid from 'react-uuid';
 class ListaClase extends React.Component {
   constructor(props) {
     super(props);
@@ -10,6 +11,7 @@ class ListaClase extends React.Component {
       for (let i = 0; i < props.elementos.length; i++) {
         this.listaElementos.push(
           <ComponenteListaClase
+          key={uuid()}
             done={props.elementos[i].done}
             texto={props.elementos[i].texto}
             prioridad={props.elementos[i].prioridad}
@@ -26,6 +28,7 @@ class ListaClase extends React.Component {
   anadir() {
     this.listaElementos = this.listaElementos.concat(
       <ComponenteListaClase
+      key={uuid()}
         texto={this.valorTextInput.value}
         prioridad={this.valorSelect.value}
       />
