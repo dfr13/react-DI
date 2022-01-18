@@ -7,10 +7,10 @@ export function BoostrapTabla() {
       <Table striped bordered hover>
         <thead>
           <tr>
-            <th>{MenuTabla.text}</th>
-            <th>{MenuTabla.text2}</th>
-            <th>{MenuTabla.text3}</th>
-            <th>{MenuTabla.text4}</th>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>id</th>
           </tr>
         </thead>
         <tbody>
