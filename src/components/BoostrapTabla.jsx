@@ -1,37 +1,52 @@
 import React from 'react';
 import {Table} from 'react-bootstrap';
+import { MenuTabla} from '../data/MenuTabla';
 export function BoostrapTabla() {
 return (
   <div className="main-site">
   <Table striped bordered hover>
 <thead>
 <tr>
-  <th>#</th>
-  <th>First Name</th>
-  <th>Last Name</th>
-  <th>Username</th>
+{MenuTabla.map((item) => {
+        return (
+          <td>
+          {item.text}
+          </td>
+        );
+        })}
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>1</td>
-  <td>Mark</td>
-  <td>Otto</td>
-  <td>@mdo</td>
+{MenuTabla.map((item) => {
+        return (
+          <td>
+          {item.text2}
+          </td>
+        );
+        })}
 </tr>
 <tr>
-  <td>2</td>
-  <td>Jacob</td>
-  <td>Thornton</td>
-  <td>@fat</td>
+{MenuTabla.map((item) => {
+        return (
+          <td>
+          {item.text3}
+          </td>
+        );
+        })}
 </tr>
 <tr>
-  <td>3</td>
-  <td colSpan={2}>Larry the Bird</td>
-  <td>@twitter</td>
+{MenuTabla.map((item) => {
+        return (
+          <td>
+          {item.text4}
+          </td>
+        );
+        })}
 </tr>
 </tbody>
 </Table>
+
 </div>
 );
 }
