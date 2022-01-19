@@ -9,8 +9,8 @@ export function BoostrapTabla() {
           <tr>
             <th>#</th>
             <th>Nombre</th>
-            <th>Apellido</th>
-            <th>id</th>
+            <th>Ciudad</th>
+            <th>ABR</th>
           </tr>
         </thead>
         <tbody>
