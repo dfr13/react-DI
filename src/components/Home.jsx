@@ -8,14 +8,29 @@ class Home extends React.Component {
     this.login = this.login.bind(this);
   }
   login() {
-    this.setState({ user: this.state.value, password: '1234' });
-    console.log(`${this.state.user} Enviado`);
+    this.setState({
+      user: this.valorUsuario.value,
+      password: this.valorContraseña.value,
+    });
   }
+
+
+  componentDidMount(){
+    this.setState({
+      user:localStorage.getItem('user'),
+      password:localStorage.getItem('password')
+  })
+  }
+
   render() {
-    if (this.state != null && this.state.user != null && this.state.user!='') {
+    if (
+      this.state != null &&
+      this.state.user != null &&
+      this.state.user != ''
+    ) {
       return (
         <div className="main-site">
-          <h1>Bienvenido{this.state.user}!</h1>
+          <h1>Bienvenido {this.state.user}!</h1>
         </div>
       );
     } else {
@@ -25,17 +40,24 @@ class Home extends React.Component {
           <Container>
             <Form>
               <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Nombre usuario o email</Form.Label>
-                <Form.Control type="email" placeholder="Email o usuario" 
-                onChange={(e) => this.setState({ user: e.target.value })} />
+                <Form.Label>Nombre usuario</Form.Label>
+                <Form.Control
+                  type="email"
+                  placeholder="Usuario"
+                  ref={(usuario) => (this.valorUsuario = usuario)}
+                />
               </Form.Group>
+
               <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Contraseña</Form.Label>
-                <Form.Control type="password" placeholder="Contraseña" />
+                <Form.Control
+                  type="password"
+                  placeholder="Contraseña"
+                  ref={(contraseña) => (this.valorContraseña = contraseña)}
+                />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" label="Recordarme" 
-                onChange={(e) => this.setState({ password: e.target.value })}/>
+                <Form.Check type="checkbox" label="Recordarme" />
               </Form.Group>
               <Button variant="primary" type="button" onClick={this.login}>
                 Entrar
@@ -45,6 +67,10 @@ class Home extends React.Component {
         </div>
       );
     }
+  }
+  componentWillUnmount(){
+    localStorage.setItem('user', this.state.user);
+    localStorage.setItem('password', this.state.password);
   }
 }
 export default Home;
