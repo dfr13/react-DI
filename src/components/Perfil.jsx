@@ -27,7 +27,13 @@ class Perfil extends React.Component {
          <Card.Img variant="top" src={this.state.foto} />
          <Card.Body>
            <Card.Title>
-             {this.state.user} {this.state.email} {this.state.equipo}
+              Nombre:  {this.state.user} 
+           </Card.Title>
+           <Card.Title>
+             e-amil: {this.state.email} 
+           </Card.Title>
+           <Card.Title>
+              Equipo: {this.state.equipo}
            </Card.Title>
          </Card.Body>
        </Card>

@@ -9,7 +9,7 @@ class Home extends React.Component {
     this.compruebaLogin = this.compruebaLogin.bind(this);
   }
   compruebaLogin() {
-    var encontrado = false;
+    var login = false;
     MenuUsuarios.map((item) => {
       if (
         item.nombre === this.valorUsuario.value &&
@@ -26,12 +26,12 @@ class Home extends React.Component {
         localStorage.setItem('email', item.email);
         localStorage.setItem('foto', item.foto);
         localStorage.setItem('equipo',item.equipo);
-        encontrado = true;
+        login = true;
       }
     });
-    if (!encontrado) {
+    if (!login) {
       alert(
-        'El usuario y la contraseña introducidos no se corresponden con ningún registro'
+        'Ese usuario o contraseña no esta en MenuUsuarios'
       );
     }
   }
