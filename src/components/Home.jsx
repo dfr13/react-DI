@@ -1,25 +1,49 @@
 import React from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
+import { MenuUsuarios } from '../data/MenuUsuarios';
 
 class Home extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { user: '', password: '' };
-    this.login = this.login.bind(this);
+    this.state = { user: '', password: '', foto: '', email: '', equipo:'' };
+    this.compruebaLogin = this.compruebaLogin.bind(this);
   }
-  login() {
-    this.setState({
-      user: this.valorUsuario.value,
-      password: this.valorContraseña.value,
+  compruebaLogin() {
+    var encontrado = false;
+    MenuUsuarios.map((item) => {
+      if (
+        item.nombre === this.valorUsuario.value &&
+        item.password === this.valorPassword.value
+      ) {
+        this.setState({
+          user: item.nombre,
+          password: item.password,
+          email: item.email,
+          foto: item.foto,
+        });
+        localStorage.setItem('user', item.nombre);
+        localStorage.setItem('password', item.password);
+        localStorage.setItem('email', item.email);
+        localStorage.setItem('foto', item.foto);
+        localStorage.setItem('equipo',item.equipo);
+        encontrado = true;
+      }
     });
+    if (!encontrado) {
+      alert(
+        'El usuario y la contraseña introducidos no se corresponden con ningún registro'
+      );
+    }
   }
 
-
-  componentDidMount(){
+  componentDidMount() {
     this.setState({
-      user:localStorage.getItem('user'),
-      password:localStorage.getItem('password')
-  })
+      user: localStorage.getItem('user'),
+      password: localStorage.getItem('password'),
+      foto: localStorage.getItem('foto'),
+      email: localStorage.getItem('email'),
+      equipo: localStorage.getItem('equipo'),
+    });
   }
 
   render() {
@@ -53,13 +77,17 @@ class Home extends React.Component {
                 <Form.Control
                   type="password"
                   placeholder="Contraseña"
-                  ref={(contraseña) => (this.valorContraseña = contraseña)}
+                  ref={(password) => (this.valorPassword = password)}
                 />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicCheckbox">
                 <Form.Check type="checkbox" label="Recordarme" />
               </Form.Group>
-              <Button variant="primary" type="button" onClick={this.login}>
+              <Button
+                variant="primary"
+                type="button"
+                onClick={this.compruebaLogin}
+              >
                 Entrar
               </Button>
             </Form>
@@ -68,9 +96,12 @@ class Home extends React.Component {
       );
     }
   }
+
+  /**
+   * Guadar los valores. No se usa porq lo guadarmoa si valida
   componentWillUnmount(){
     localStorage.setItem('user', this.state.user);
     localStorage.setItem('password', this.state.password);
-  }
+  }*/
 }
 export default Home;

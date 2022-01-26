@@ -1,65 +1,44 @@
 import React from 'react';
-import { MenuUsuarios } from '../data/MenuUsuarios';
+import { Card } from 'react-bootstrap';
 
 class Perfil extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { user: '', password: '' };
+    this.state = { user: '', password: '', foto: '', emial: '', equipo: '' };
     this.login;
   }
   componentDidMount() {
     this.setState({
       user: localStorage.getItem('user'),
       password: localStorage.getItem('password'),
-    });
-  }
-  compruebaLogin() {
-    this.login = false;
-    MenuUsuarios.map((item) => {
-      if (
-        this.state.user === item.nombre &&
-        this.state.password === item.password
-      ) {
-       // this.setState({this.login : true})
-
-      } else {
-        this.login=false;
-      }
+      foto: localStorage.getItem('foto'),
+      email: localStorage.getItem('email'),
+      equipo: localStorage.getItem('equipo'),
     });
   }
   render() {
-    if (this.compruebaLogin()){ 
+    if (
+      this.state != null &&
+      this.state.user != null &&
+      this.state.user != ''
+    ) {
       return (
-    <div className="main-site">
-       <h1>Bienvenido {this.state.user}!</h1>
-    </div>);
+         <Card style={{ width: '18rem' }}>
+         <Card.Img variant="top" src={this.state.foto} />
+         <Card.Body>
+           <Card.Title>
+             {this.state.user} {this.state.email} {this.state.equipo}
+           </Card.Title>
+         </Card.Body>
+       </Card>
+      );
     } else {
       return (
         <div className="main-site">
-           <h1>Bienvenido!</h1>
-        </div>);
+          <h1>Aun no has iniciado sesion </h1>
+        </div>
+      );
     }
-   
-    /*return (MenuUsuarios.map((item) => {
-      if (
-        this.state != null &&
-        this.state.user != null &&
-        this.state.user != '' &&
-        this.state.user === item.nombre
-      ) {
-        return (
-          <div className="main-site">
-            <h1>Bienvenido {this.state.user}!</h1>
-          </div>
-        );
-      } else {
-        return (
-          <div className="main-site">
-            <h1>Bienvenido!</h1>
-          </div>
-        );
-      }
-    }));*/
   }
 }
 export default Perfil;
