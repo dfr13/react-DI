@@ -1,6 +1,6 @@
 import  Home  from '../components/Home';
 import { PaginaListas } from '../components/PaginaListas';
-import { Perfil } from '../components/Perfil';
+import Perfil  from '../components/Perfil';
 import  BoostrapTablaClase  from '../components/BoostrapTablaClase';
 export const MenuItems = [
 {path:'/' ,id:1 ,title:'Home', components:Home},
