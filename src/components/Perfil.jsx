@@ -1,11 +1,14 @@
 import React from 'react';
-import { Card } from 'react-bootstrap';
+import { Card, Button, InputGroup  } from 'react-bootstrap';
 
 class Perfil extends React.Component {
   constructor(props) {
     super(props);
     this.state = { user: '', password: '', foto: '', emial: '', equipo: '' };
     this.login;
+  }
+  cerrarSesion() {
+    localStorage.clear();
   }
   componentDidMount() {
     this.setState({
@@ -27,15 +30,16 @@ class Perfil extends React.Component {
          <Card.Img variant="top" src={this.state.foto} />
          <Card.Body>
            <Card.Title>
-              Nombre:  {this.state.user} 
+           <InputGroup.Text id="basic-addon3">Nombre: {this.state.user} </InputGroup.Text> 
            </Card.Title>
            <Card.Title>
-             e-amil: {this.state.email} 
+           <InputGroup.Text id="basic-addon3">e-amil: {this.state.email} </InputGroup.Text>
            </Card.Title>
            <Card.Title>
-              Equipo: {this.state.equipo}
+           <InputGroup.Text id="basic-addon3">Equipo: {this.state.equipo} </InputGroup.Text>
            </Card.Title>
          </Card.Body>
+         <Button variant="primary" onClick={this.cerrarSesion}>Cerrar sesión</Button>
        </Card>
       );
     } else {
