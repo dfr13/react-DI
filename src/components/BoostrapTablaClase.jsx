@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, Container, Table, Row, Col } from 'react-bootstrap';
 import { MenuTabla2 } from '../data/MenuTabla';
+import uuid from 'react-uuid';
 
 class BoostrapTablaClase extends React.Component{
   constructor(props){
@@ -38,7 +39,9 @@ class BoostrapTablaClase extends React.Component{
                 <tbody>
                   {MenuTabla2.map((item) => {
                     return (
-                      <tr onClick={ () => this.changeClicked(item)}>
+                      <tr
+                       key = {uuid()}
+                       onClick={ () => this.changeClicked(item)}>
                         <td>{item.id}</td>
                         <td>{item.nombre}</td>
                         <td>{item.ciudad}</td>
