@@ -7,9 +7,9 @@ class BoostrapTablaClase extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-    imgClick: '',
-    equipoClick: '',
-    abrClick: '',
+    imgClick: MenuTabla2[0].img,
+    equipoClick: MenuTabla2[0].nombre,
+    abrClick: MenuTabla2[0].abr,
     };
   }
 

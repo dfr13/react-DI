@@ -8,7 +8,8 @@ class Ligas extends React.Component {
     super(props);
     this.state = {
       selectedItem: '',
-      tableData: [],
+      tableData: [0],
+      img: '',
     };
   }
   async componentDidMount() {
@@ -19,12 +20,14 @@ class Ligas extends React.Component {
     this.setState({
       tableData: responseData.data,
       selectedItem: responseData.data[0],
+      img: responseData.data[0].logos.light,
     });
   }
 
   changeClicked(item) {
     this.setState({
       selectedItem: item,
+      img: item.logos.light,
     });
   }
   render() {
@@ -40,7 +43,6 @@ class Ligas extends React.Component {
                     <th>Nombre</th>
                     <th>Liga</th>
                     <th>Abreviatura</th>
-                    <th>logos</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -50,7 +52,6 @@ class Ligas extends React.Component {
                         <td>{item.name}</td>
                         <td>{item.slug}</td>
                         <td>{item.abbr}</td>
-                        <td>{item.logos.dark}</td>
                       </tr>
                     );
                   })}
@@ -60,7 +61,7 @@ class Ligas extends React.Component {
             <Col lg={4} md={6}>
               {/*<FilmCard data = {this.state.selectedItem}>*/}
               <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={this.state.selectedItem.logos.light} />
+                <Card.Img variant="top" src={this.state.img} />
                 <Card.Body>
                   <Card.Title>
                     Titulo Original: {this.state.selectedItem.name}
