@@ -8,7 +8,7 @@ class Ligas extends React.Component {
     super(props);
     this.state = {
       selectedItem: '',
-      tableData: [0],
+      tableData: [],
       img: '',
     };
   }
